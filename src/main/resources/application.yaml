@@ -1,0 +1,31 @@
+# Server port configuration for Spring Boot application
+server:
+  port: 8081  # Ensure this matches the URI in the API Gateway
+
+# Application name for Spring Boot application
+spring:
+  application:
+    name: jwt  # This is the application name of your service
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/univercity
+    username: root
+    password: # Provide the actual password here or use environment variables
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 10  # Adjust the pool size as needed
+      minimum-idle: 5
+      idle-timeout: 30000
+      max-lifetime: 1800000
+
+  main:
+    allow-circular-references: true
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect

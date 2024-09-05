@@ -31,6 +31,11 @@ public class UserController {
         return "Welcome this endpoint is not secure";
     }
 
+    @GetMapping("/well")
+    public String well() {
+        return "Welcome endpoint is not secure";
+    }
+
     @PostMapping("/addNewUser")
     public String addNewUser(@RequestBody UserInfo userInfo) {
         return service.addUser(userInfo);
@@ -49,6 +54,8 @@ public class UserController {
     public String adminProfile() {
         return "Welcome to Admin Profile";
     }
+
+
 
     @PostMapping("/generateToken")
     public String authenticateAndGetToken(@RequestBody AuthRequest authRequest) {
